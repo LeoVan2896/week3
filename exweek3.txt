@@ -1,0 +1,39 @@
+drop table if exists employee_table;
+create table if not exists employee_table (Id serial primary key, FirstName varchar(50), LastName varchar(50), Title varchar(50), ReportsTo integer, BirthDate integer, HireDate integer, address varchar(50), City varchar(50), State varchar(50), Country varchar(50), PostalCode varchar(50), Phone integer, Fax integer, Email varchar(50));
+select * from "Employee";
+
+select * from "Employee" e where "LastName" = 'King' ;
+select * from "Employee" e where "FirstName" = 'Andrew' and "ReportsTo" is null;
+
+
+
+
+
+
+create table if not exists Album_table (AlbumID serial primary key, Title varchar(50), ArtistID integer);
+select * from "Album" a order by "Title" desc;
+
+
+create table if not exists Customer_table (CustomerId serial, FirstName varchar(50), LastName varchar(50), Company varchar(50), Addess varchar(50), City varchar(50), State varchar, Country varchar(50), PostalCode varchar(50), Phone int, Fax int, Email varchar(50), SupportRepld int);
+select "FirstName" from "Employee" e order by "City" asc;
+
+
+select * from "Invoice" i   where "BillingAddress" like 'T%';
+
+select * from "Invoice" i where "Total" >= 15 and "Total" <= 50;
+
+select * from "Employee" e where "HireDate" >= '2003-06-01' and "HireDate" <= '2004-03-01';
+
+insert into "Genre" values (26, 'EDM');
+insert into "Genre" values (27, 'Cat music');
+
+insert into "Employee" values (9, 'Van', 'Huy', 'Software', 6,'1996-02-02', '2022-08-01', 'mar', 'mar', 'TX', 'USA', 77777,  7777777777, 123456789, 'huy017@revature.net');
+insert into "Employee" values (10, 'Kenedy', 'Leon', 'SCPD', null, '1996-08-02', '2022-08-01', 'Raccon', 'Califonia', 'USA', 99999, 99999999,10101010101,'leonkenedy@gmail.com');
+
+
+update "Employee" set "LastName" = 'Walter'  where "FirstName" = 'Aaron' and "LastName" ='Michell';
+update "Employee" set "FirstName" = 'Robert' where "FirstName" = 'Aaron' and "LastName" = 'Walter';
+
+
+update "Artist" set "Name" = 'CCR' where "Name" = 'Creedence Clearwater Revival';
+
