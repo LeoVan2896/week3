@@ -17,7 +17,7 @@ insert into table2 values (3, 2018, 20);
 insert into table2 values (3, 2016, 40);
 insert into table2 values (4, 2021, 50);
 
-select * from table2 where revenue >= 0;
+select divisionid  from table2 where revenue >= 0 and year = 2021;
 
 
 create table if not exists table3 (Id serial primary key, year int);
@@ -40,7 +40,7 @@ insert into table4 values (default, 47);
 
 
 select value, case when value %2 = 0 then 'even' when value %2 !=0 then 'odd' end as even_odd from table4;
-drop table if exists table5;
+
 
 
 create table if not exists table5 (id serial primary key, Name varchar(50));
@@ -91,7 +91,7 @@ insert into table8 values (default, 'Scott Daniels', 'England');
 insert into table8 values (default, 'Daniel Jackson', 'France');
 insert into table8 values (default, 'Jack Johnson', 'Canada');
 
-select * from table8 where Country = 'Canada' or Country = 'United State';
+select * from table8 where Country != 'Canada' or Country != 'United State';
 
 
 create table if not exists table9 (id serial primary key, Name varchar(50), Age int);
