@@ -1,0 +1,112 @@
+
+create table if not exists table1 (id integer, Value integer);
+insert into table1 values (1, -65);
+insert into table1 values (2, 76);
+insert into table1 values (3, -84);
+insert into table1 values (4, 96);
+insert into table1 values (5, -47);
+
+update  table1 set Value = (Value*-1);
+
+create table if not exists table2 (DivisionId integer, year integer, Revenue integer);
+insert into table2 values (1, 2018, 60);
+insert into table2 values (1, 2021, 40);
+insert into table2 values (1, 2020, 70);
+insert into table2 values (2, 2011, -10);
+insert into table2 values (3, 2018, 20);
+insert into table2 values (3, 2016, 40);
+insert into table2 values (4, 2021, 50);
+
+select * from table2 where revenue >= 0;
+
+
+create table if not exists table3 (Id serial primary key, year int);
+insert into table3 values (default, 1776);
+insert into table3 values (default, 2001);
+insert into table3 values (default, 1643);
+insert into table3 values (default, 1865);
+insert into table3 values (default, 1969);
+
+select (year/100+1) as century from table3;
+
+
+
+create table if not exists table4 (id serial primary key, value int);
+insert into table4 values (default, 4);
+insert into table4 values (default, 11);
+insert into table4 values (default, 57);
+insert into table4 values (default, 24);
+insert into table4 values (default, 47);
+
+
+select value, case when value %2 = 0 then 'even' when value %2 !=0 then 'odd' end as even_odd from table4;
+drop table if exists table5;
+
+
+create table if not exists table5 (id serial primary key, Name varchar(50));
+insert into table5 values (default, 'Bob');
+insert into table5 values (default, 'Sam');
+insert into table5 values (default, 'Jill');
+insert into table5 values (default, 'Jim');
+insert into table5 values (default, 'Sally');
+insert into table5 values (default, 'Jess');
+insert into table5 values (default, 'Will');
+
+select name, concat('hi, ', name,'! ','How are you today?') from table5; 
+
+
+create table if not exists table6 (id serial primary key, age int);
+insert into table6 values (default, 18);
+insert into table6 values (default, 19);
+insert into table6 values (default, 19);
+insert into table6 values (default, 20);
+insert into table6 values (default, 21);
+insert into table6 values (default, 21);
+insert into table6 values (default, 21);
+
+select age, count(age) as count from table6 group by age;
+
+
+create table if not exists table7 (id serial primary key, name varchar(50), AmountSold varchar(50));
+insert into table7 values (default, 'Cup',11);
+insert into table7 values (default, 'Saucer',22);
+insert into table7 values (default, 'Plate',46);
+insert into table7 values (default, 'Fork', 34);
+insert into table7 values (default, 'Spoon',45);
+insert into table7 values (default, 'Knife',78);
+insert into table7 values (default, 'Mug', 23);
+insert into table7 values (default, 'Glass', 64);
+insert into table7 values (default, 'Tumbler', 24);
+
+select * from  table7 order by amountsold desc limit 5; 
+
+
+create table if not exists table8 (id serial primary key, Name varchar(50), Country varchar(50));
+insert into table8 values (default, 'Bob Smith', 'United State');
+insert into table8 values (default, 'Jim Jones', 'China');
+insert into table8 values (default, 'Sam White', 'Japan');
+insert into table8 values (default, 'Will Wilson', 'Canada');
+insert into table8 values (default, 'Wilson Scott', 'Germany');
+insert into table8 values (default, 'Scott Daniels', 'England');
+insert into table8 values (default, 'Daniel Jackson', 'France');
+insert into table8 values (default, 'Jack Johnson', 'Canada');
+
+select * from table8 where Country = 'Canada' or Country = 'United State';
+
+
+create table if not exists table9 (id serial primary key, Name varchar(50), Age int);
+
+insert into table9 values (default, 'Bob', 21);
+insert into table9 values (default, 'Sam', 19);
+insert into table9 values (default, 'Jill', 18);
+insert into table9 values (default, 'jim', 21);
+insert into table9 values (default, 'Sally', 19);
+insert into table9 values (default, 'Jess', 20);
+insert into table9 values (default, 'Will', 21);
+
+select distinct age from table9;
+
+select sum(age) from table9; 
+
+
+
