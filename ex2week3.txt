@@ -91,7 +91,7 @@ insert into table8 values (default, 'Scott Daniels', 'England');
 insert into table8 values (default, 'Daniel Jackson', 'France');
 insert into table8 values (default, 'Jack Johnson', 'Canada');
 
-select * from table8 where Country != 'Canada' or Country != 'United State';
+select * from table8 where Country != 'Canada' and Country != 'United State';
 
 
 create table if not exists table9 (id serial primary key, Name varchar(50), Age int);
